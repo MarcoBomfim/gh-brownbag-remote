@@ -1,0 +1,22 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sleep for 5 seconds
+        run: sleep 5s
+        shell: bash
+      - name: Trigger remote workflow and wait for result
+        uses: convictional/trigger-workflow-and-wait@v1.6.5
+        with:
+          github_token: ${{ secrets.MARCO_PAT }}
+          owner: MarcoBomfim
+          repo: gha-brownbag
+          ref: main
+          workflow_file_name: async.yml
+          trigger_workflow: true
+          wait_workflow: false
