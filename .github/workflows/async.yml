@@ -17,6 +17,6 @@ jobs:
           owner: MarcoBomfim
           repo: gha-brownbag
           ref: main
-          workflow_file_name: async.yml
+          workflow_file_name: after.yml
           trigger_workflow: true
           wait_workflow: false
